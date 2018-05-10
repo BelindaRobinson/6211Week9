@@ -3,118 +3,160 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Diagnostics;
 
 namespace Ecercises
 {
     class Program
     {
+        
+
         static void Main(string[] args)
+            
         {
-            int[] num = { 7, 11, 88, 25, 66, 55};
+            
+            int[] num = { 7, 45, 88, 25, 66, 55};
             BubbleSort(num);
-            int[] num1 = { 7, 11, 88, 25, 66, 55};
+            int[] num1 = { 7, 45, 88, 25, 66, 55};
             SelectionSort(num1);
-            int[] num2 = { 7, 11, 88, 25, 66, 55};
+            int[] num2 = { 7, 45, 88, 25, 66, 55};
             InsertionSort(num2);
 
         }
 
-        public static void InsertionSort(int[] _arr)
+        public static void InsertionTiming(int[]_num)
+        {
+            Stopwatch MyTimer = new Stopwatch();
+            MyTimer.Start();
+            InsertionSort(_num);
+            MyTimer.Stop();
+            Console.WriteLine("timetaken:" + MyTimer.Elapsed);
+            Console.ReadLine();
+            
+        }
+
+        public static void SelectionTiming(int[] _num)
+        {
+            Stopwatch MyTimer = new Stopwatch();
+            MyTimer.Start();
+            SelectionSort(_num);
+            MyTimer.Stop();
+            Console.WriteLine("timetaken:" + MyTimer.Elapsed);
+            Console.ReadLine();
+        }
+
+        public static void BubbleTiming(int[] _num)
+        {
+            Stopwatch MyTimer = new Stopwatch();
+            MyTimer.Start();
+            BubbleSort(_num);
+            MyTimer.Stop();
+            Console.WriteLine("timetaken:" + MyTimer.Elapsed);
+            Console.ReadLine();
+        }
+
+        public static void InsertionSort(int[] _num)
         {
             int inner, temp;
-            Console.WriteLine("\n\n--Original Contents--");
-            displayContents(_arr);//Display the original state of the array.
+            Console.WriteLine("Original Array List");
+            displayContents(_num);
 
-            Console.WriteLine("--Insertion Sort Process--");
-            for (int i = 1; i <= _arr.Length - 1; i++)
+            Console.WriteLine("Insertion Sorted List");
+            for (int i = 1; i <= _num.Length - 1; i++)
             {
                 inner = i;
-                temp = _arr[i];
-                while (inner > 0 && _arr[inner - 1] >= temp)
+                temp = _num[i];
+                while (inner > 0 && _num[inner - 1] >= temp)
                 {
-                    _arr[inner] = _arr[inner - 1];
+                    _num[inner] = _num[inner - 1];
                     inner -= 1;
                 }
-                _arr[inner] = temp;
-                displayContents(_arr);
+                _num[inner] = temp;
+                displayContents(_num);
             }
         }
-
-        /*--Selection Sort Algorithm--*/
-        public static void SelectionSort(int[] _arr)
+        
+        public static void SelectionSort(int[] _num)
         {
-            int temp, min;//Variables used to temporarily store the array value while it swaps them around.
+            int temp, min;
 
-            Console.WriteLine("\n\n--Original Contents--");
-            displayContents(_arr);//Display the original state of the array.
+            Console.WriteLine("Original Array List");
+            displayContents(_num);
 
-            Console.WriteLine("--Selection Sort Process--");
-            for (int i = 0; i < _arr.Length - 1; i++)//Outter loops goes through all of the objects in the array.
+            Console.WriteLine("Selection Sorted List");
+            for (int i = 0; i < _num.Length - 1; i++)
             {
-                min = i;//Minimum value is set to the current index that the outer loop is at.
-                for (int j = i + 1; j < _arr.Length; j++)//Inner loop goes thorough and does the swaps.
+                min = i;
+                for (int j = i + 1; j < _num.Length; j++)
                 {
-                    if (_arr[j] < _arr[min])//Condition checking of the current state of the array
+                    if (_num[j] < _num[min])
                     {
-                        min = j;//If the current value is less than _arr[min] then make j the new min.
+                        min = j;
                     }
                 }
-                displayContents(_arr);//Display the contents after each iteration of the algorithm
+                displayContents(_num);
                 if (min != 1)
                 {
-                    temp = _arr[i];
-                    _arr[i] = _arr[min];
-                    _arr[min] = temp;
+                    temp = _num[i];
+                    _num[i] = _num[min];
+                    _num[min] = temp;
                 }
             }
-            displayContents(_arr);
+            displayContents(_num);
         }
 
-        /*--Bubble sort algorithm--*/
-        public static void BubbleSort(int[] _arr)
+
+        public static void BubbleSort(int[] _num)
         {
-            int temp;//Variable used to temporarily store the array value while it is swapped around.
+            int temp;
 
-            Console.WriteLine("--Original Contents--");
-            displayContents(_arr);//Display the original state of the array.
+            Console.WriteLine("Original Array List");
+            displayContents(_num);
 
-            Console.WriteLine("--Bubble Sort Process--");
-            for (int i = 0; i < _arr.Length; i++)//Outter loops goes through all of the objects in the array.
+            Console.WriteLine("Bubble Sorted List");
+            for (int i = 0; i < _num.Length; i++)
             {
-                for (int j = 0; j < _arr.Length - 1; j++)//Inner loop goes thorough and does the swaps.
+                for (int j = 0; j < _num.Length - 1; j++)
                 {
-                    if (_arr[j] > _arr[j + 1])//Condition checking of the current state of the array
+                    if (_num[j] > _num[j + 1])
                     {
-                        temp = _arr[j + 1];//Swap the contents of the two array indicies
-                        _arr[j + 1] = _arr[j];
-                        _arr[j] = temp;
+                        temp = _num[j + 1];
+                        _num[j + 1] = _num[j];
+                        _num[j] = temp;
                     }
                 }
-                displayContents(_arr);//Display the contents after each iteration of the algorithm
+                displayContents(_num);
             }
         }
 
-        /*--Display contents of the arrays--*/
-        public static void displayContents(int[] _arr)
+
+        public static void displayContents(int[] _num)
         {
-            for (int i = 0; i <= _arr.Length - 1; i++)//for loop used to display the contents of an array
+            for (int i = 0; i <= _num.Length - 1; i++)
             {
-                Console.Write(_arr[i] + " ");
+                Console.Write(_num[i] + " ");
             }
             Console.WriteLine();
         }
-    }
 
-    /*--- Add the code for the tasks here ---*/
-    class Exercises
-    {
-        /*
-            string[] input = File.ReadLines(@"c:\Data.txt").ToArray();//copy from txt file to an array
-            for (int i = 0; i < input.Length; i++)
+        public static void InsertionTimi(int[] _num) 
+        {
+            /*int sortTiming;
+
+            for (int i = 0; i < _num.Length; i++)
+                _num.Insert((int)(rnd.NextDouble() * 100));
             {
-                Console.Write(input[i] + " ");
-            }
-            Console.WriteLine();
-            */
+                sortTime.startTime();
+                _num.InsertionSort();
+                sortTime.stopTime();
+
+            }*/     
+
+        }
+         
+
+        
+
     }
+    
 }
