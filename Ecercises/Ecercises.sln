@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ecercises", "Ecercises\Ecer
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Play", "Play\Play.csproj", "{57BE8F8C-641E-4DD4-94DF-9E3AB4878604}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Play2", "Play2\Play2.csproj", "{03B4A707-9D52-4E03-A87B-4EED5B427EE6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{57BE8F8C-641E-4DD4-94DF-9E3AB4878604}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{57BE8F8C-641E-4DD4-94DF-9E3AB4878604}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{57BE8F8C-641E-4DD4-94DF-9E3AB4878604}.Release|Any CPU.Build.0 = Release|Any CPU
+		{03B4A707-9D52-4E03-A87B-4EED5B427EE6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{03B4A707-9D52-4E03-A87B-4EED5B427EE6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{03B4A707-9D52-4E03-A87B-4EED5B427EE6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{03B4A707-9D52-4E03-A87B-4EED5B427EE6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

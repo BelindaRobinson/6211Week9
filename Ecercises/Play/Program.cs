@@ -12,30 +12,35 @@ namespace Play
     {
 
         static void Main(string[] args)
+
         {
+
             int[] num = { 7, 45, 88, 25, 66, 55 };
+            BubbleSort(num);
+            
 
+        }
 
-            Stopwatch MyTimer = new Stopwatch();
-            MyTimer.Start();
-            int inner, temp;
+        public static void BubbleSort(int[] _num)
+        {
+            int temp;
+
             Console.WriteLine("Original Array List");
+            displayContents(_num);
 
-
-            Console.WriteLine("Insertion Sorted List");
-            for (int i = 1; i <= num.Length - 1; i++)
+            Console.WriteLine("Bubble Sorted List");
+            for (int i = 0; i < _num.Length; i++)
             {
-                inner = i;
-                temp = num[i];
-                while (inner > 0 && num[inner - 1] >= temp)
+                for (int j = 0; j < _num.Length - 1; j++)
                 {
-                    num[inner] = num[inner - 1];
-                    inner -= 1;
+                    if (_num[j] > _num[j + 1])
+                    {
+                        temp = _num[j + 1];
+                        _num[j + 1] = _num[j];
+                        _num[j] = temp;
+                    }
                 }
-                num[inner] = temp;
-                MyTimer.Stop();
-                Console.WriteLine("timetaken:" + MyTimer.Elapsed);
-                Console.ReadLine();
+                displayContents(_num);
             }
         }
     }

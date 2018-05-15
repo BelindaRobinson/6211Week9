@@ -26,6 +26,7 @@ namespace Ecercises
 
         public static void InsertionTiming(int[]_num)
         {
+            
             Stopwatch MyTimer = new Stopwatch();
             MyTimer.Start();
             InsertionSort(_num);
@@ -34,9 +35,11 @@ namespace Ecercises
             Console.ReadLine();
             
         }
+        
 
         public static void SelectionTiming(int[] _num)
         {
+            
             Stopwatch MyTimer = new Stopwatch();
             MyTimer.Start();
             SelectionSort(_num);
@@ -61,6 +64,9 @@ namespace Ecercises
             Console.WriteLine("Original Array List");
             displayContents(_num);
 
+            Stopwatch MyTimer = new Stopwatch();
+            MyTimer.Start();
+
             Console.WriteLine("Insertion Sorted List");
             for (int i = 1; i <= _num.Length - 1; i++)
             {
@@ -71,6 +77,10 @@ namespace Ecercises
                     _num[inner] = _num[inner - 1];
                     inner -= 1;
                 }
+
+                Console.WriteLine("timetaken:" + MyTimer.Elapsed);
+                Console.ReadLine();
+
                 _num[inner] = temp;
                 displayContents(_num);
             }
@@ -139,22 +149,7 @@ namespace Ecercises
             Console.WriteLine();
         }
 
-        public static void InsertionTimi(int[] _num) 
-        {
-            /*int sortTiming;
-
-            for (int i = 0; i < _num.Length; i++)
-                _num.Insert((int)(rnd.NextDouble() * 100));
-            {
-                sortTime.startTime();
-                _num.InsertionSort();
-                sortTime.stopTime();
-
-            }*/     
-
-        }
-         
-
+        
         
 
     }
